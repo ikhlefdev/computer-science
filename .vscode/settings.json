@@ -4,10 +4,12 @@
         "entriess",
         "hachcode",
         "hashcode",
+        "heighty",
         "keyss",
         "loadfactor",
         "oldbucket",
         "oldbuckets",
+        "rebalance",
         "valuess"
     ]
 }

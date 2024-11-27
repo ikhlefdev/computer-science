@@ -1,30 +1,35 @@
-import {HashMap} from "./hashmaps.mjs"
+import {Tree} from "./bst.mjs"
 
-const test=new HashMap()
-test.set('apple', 'red')
-test.set('banana', 'yellow')
-test.set('carrot', 'orange')
-test.set('dog', 'brown')
-test.set('elephant', 'gray')
-test.set('frog', 'green')
-test.set('hat', 'black')
-test.set('ice cream', 'white')
-test.set('jacket', 'blue')
-test.set('kite', 'pink')
-test.set('lion', 'golden')
-test.set('grape', 'purple')       
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
+  };
 
+  const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+  const tree = new Tree(array);
 
-test.set('apple', 'green')       //test overwrite
-//test.set('elephant', 'meeee')
-//test.set('ice cream', 'snikers')
+  // Pretty print the tree
+  prettyPrint(tree.root);
+  // Level Order (you can use either levelOrderITE or levelOrderREC)
+//console.log("Level Order:");
+//tree.LevelOrderITE((node) => console.log(node.data));
 
-//test.set('moon', 'silver')  //test overload
-//test.remove("dog")
-console.log(test.length())
-console.log(test.entries())
+// Pre Order
+//console.log("\nPre Order:");
+//tree.preOrder(tree.root, (node) => console.log(node.data));
 
+// Post Order
+//console.log("\nPost Order:");
+//tree.postOrder(tree.root, (node) => console.log(node.data));
 
-console.log(test.get("dog"))
-console.log(test.keys())
-console.log(test.values())
+// In Order
+//console.log("\nIn Order:");
+//tree.inOrder(tree.root, (node) => console.log(node.data));

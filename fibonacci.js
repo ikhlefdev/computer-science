@@ -23,32 +23,3 @@ function fibsRecurse(n){
     const prev = fibsRecurse(n - 1); // Recursive call     
     return [...prev, prev[prev.length - 1] + prev[prev.length - 2]]; // Add next Fibonacci number
 }
-function mergesort(array){
-    if (array.length===1){
-        return array
-    }
-    else{
-        const mid=array.length/2
-        const left=mergesort(array.slice(0,mid))
-        const right=mergesort(array.slice(mid))
-        return merge(left,right)
-    }
-
-}
-function merge(left,right){
-    let result=[]
-    let i=0 , j=0
-    while (i<left.length && j<right.length){
-        if (left[i]<right[j]){
-           result.push(left[i])
-           i++
-        }
-        else{
-            result.push(right[j])
-            j++
-        }
-
-    }
-    return result.concat(left.slice(i)).concat(right.slice(j));
-}
-console.log(mergesort([105, 79, 100, 110]))

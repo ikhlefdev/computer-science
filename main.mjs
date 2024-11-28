@@ -1,6 +1,6 @@
-import {Tree} from "./bst.mjs"
+import {knightsMove} from "./knightsTravels.mjs"
 
-const prettyPrint = (node, prefix = "", isLeft = true) => {
+/*const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
     }
@@ -41,4 +41,6 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 // In Order
 //console.log("\nIn Order:");
-//tree.inOrder(tree.root, (node) => console.log(node.data));
+//tree.inOrder(tree.root, (node) => console.log(node.data)); */
+
+knightsMove([3,3],[4,3])

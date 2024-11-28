@@ -17,6 +17,15 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   const tree = new Tree(array);
 
   // Pretty print the tree
+ 
+  tree.root=tree.insert(tree.root,10)
+  tree.root=tree.insert(tree.root,11)
+  tree.root=tree.insert(tree.root,14)
+  tree.root=tree.insert(tree.root,20)
+  prettyPrint(tree.root);
+  console.log(tree.isBalanced(tree.root))
+  tree.root=tree.rebalance(tree.root)
+  console.log(tree.isBalanced(tree.root))
   prettyPrint(tree.root);
   // Level Order (you can use either levelOrderITE or levelOrderREC)
 //console.log("Level Order:");

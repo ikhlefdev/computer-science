@@ -215,7 +215,7 @@ export class Tree{
      return -1;
 
     }
-    isBalanced(root=Node){
+    isBalanced(root=this.root){
         if (!root){return true}
         const rightHeight=this.height(root.left)
         const leftHeight=this.height(root.right)
@@ -232,15 +232,18 @@ export class Tree{
 
     
     rebalance(root=this.root){
-        if(!this.isBalanced){
+        if(!this.isBalanced(root)){
         // Step 1: Use inOrder to collect the nodes in sorted order
         const values = [];
-        this.inOrder(root, (node) => values.push(node.value));
+        this.inOrder(root, (node) => values.push(node.data));
 
         // Step 2: Build a new balanced tree using BuildTree
-        return balancedRoot = this.BuildTree(values);
+        this.root = this.BuildTree(values);
+        return this.root;
   
-    }}
+    }
+    return root
+}
 
 
 }
